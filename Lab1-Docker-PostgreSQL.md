@@ -384,12 +384,11 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 
 **บันทึกผลการทดลอง - Step 8:**
 
-ใส่ Screenshot ของ:
-1. ผลการ ALTER USER commands
-2. ผลการรัน \dp test_permissions
+
 3. ผลการ GRANT commands
 
 <img width="608" height="310" alt="image" src="https://github.com/user-attachments/assets/d40169fd-8729-4024-9e46-669fe6fa811b" />
+ <img width="470" height="98" alt="image" src="https://github.com/user-attachments/assets/6d11b28f-7a41-4e1b-9bac-7d0d54cd69b1" />
 
 
 **คำถาม
