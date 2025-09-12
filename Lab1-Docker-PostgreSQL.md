@@ -573,6 +573,7 @@ SET search_path TO public;
 4. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
 
  <img width="565" height="180" alt="image" src="https://github.com/user-attachments/assets/26bbd27a-4dca-4287-b310-8eaf6a993a49" />
+  <img width="785" height="277" alt="image" src="https://github.com/user-attachments/assets/897ec276-f987-41fc-a311-4ff9922ac808" />
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
 
