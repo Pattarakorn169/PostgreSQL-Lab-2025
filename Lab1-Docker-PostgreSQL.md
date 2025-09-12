@@ -497,12 +497,7 @@ INSERT INTO hr.employee_orders (employee_id, customer_id, order_date, commission
 ```
 
 **บันทึกผลการทดลอง - Step 9:**
-```
-ใส่ Screenshot ของ:
 
-3. ผลการใส่ข้อมูลและ query ข้อมูล
-4. ข้อมูลในตาราง employee_orders ที่จะใช้สำหรับ JOIN ข้าม schema
-```
  <img width="991" height="308" alt="image" src="https://github.com/user-attachments/assets/07c23ac9-e8ab-4a13-9029-a86000d6a895" />
  <img width="606" height="503" alt="image" src="https://github.com/user-attachments/assets/2b726bd5-9081-4f17-adef-93e96eec0a22" />
   
@@ -566,15 +561,10 @@ SET search_path TO public;
 
 **บันทึกผลการทดลอง - Step 10:**
 
-ใส่ Screenshot ของ:
-1. ผลการแสดง search_path
-2. ผลการ query ภายใน schema เดียวกัน (sales.customers + sales.orders)
-3. ผลการ JOIN ข้าม schemas (sales + hr + inventory)
-4. ข้อมูลที่แสดงจาก complex join ข้าม 3 schemas
-
  <img width="565" height="180" alt="image" src="https://github.com/user-attachments/assets/26bbd27a-4dca-4287-b310-8eaf6a993a49" />
   <img width="785" height="277" alt="image" src="https://github.com/user-attachments/assets/897ec276-f987-41fc-a311-4ff9922ac808" />
   <img width="960" height="447" alt="image" src="https://github.com/user-attachments/assets/6cd35160-507a-4c52-b9b3-32d1b51d26fc" />
+  <img width="599" height="174" alt="image" src="https://github.com/user-attachments/assets/d941c491-866f-4f6a-a63d-a33f6108f328" />
 
 ### Step 11: ทดสอบการเชื่อมต่อจาก User อื่น
 
