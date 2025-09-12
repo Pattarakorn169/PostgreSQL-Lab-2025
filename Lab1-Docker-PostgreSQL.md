@@ -267,6 +267,7 @@ WHERE datname = 'lab_db';
 **บันทึกผลการทดลอง - Step 6:**
 
 <img width="1122" height="259" alt="image" src="https://github.com/user-attachments/assets/ea592544-87cf-4cca-a5c4-443f30d43b2b" />
+ <img width="448" height="184" alt="image" src="https://github.com/user-attachments/assets/8165238b-21fc-421f-9575-dbdea07e90b6" />
 
 
 ### Step 7: User และ Role Management
