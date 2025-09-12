@@ -383,12 +383,15 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 ```
 
 **บันทึกผลการทดลอง - Step 8:**
-```
+
 ใส่ Screenshot ของ:
 1. ผลการ ALTER USER commands
 2. ผลการรัน \dp test_permissions
 3. ผลการ GRANT commands
-```
+
+<img width="608" height="310" alt="image" src="https://github.com/user-attachments/assets/d40169fd-8729-4024-9e46-669fe6fa811b" />
+
+
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
