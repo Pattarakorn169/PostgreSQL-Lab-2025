@@ -385,7 +385,7 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 **บันทึกผลการทดลอง - Step 8:**
 
 
-3. ผลการ GRANT commands
+
 
 <img width="608" height="310" alt="image" src="https://github.com/user-attachments/assets/d40169fd-8729-4024-9e46-669fe6fa811b" />
  <img width="470" height="98" alt="image" src="https://github.com/user-attachments/assets/6d11b28f-7a41-4e1b-9bac-7d0d54cd69b1" />
@@ -394,7 +394,7 @@ GRANT SELECT ON postgres_test_table TO lab_user;
 **คำถาม
  ```
 Access Privileges   postgres=arwdDxtm/postgres มีความหมายอย่างไร
-
+postgres=arwdDxtm/postgres หมายถึง role postgres มีสิทธิ์ ครบทุกอย่างบน object นั้น และสิทธิ์ถูก grant โดย postgres
 
  ```
 ### Step 9: Schema Management และ Namespace
