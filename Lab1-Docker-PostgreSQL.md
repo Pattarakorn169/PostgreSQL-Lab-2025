@@ -222,12 +222,11 @@ WHERE name IN ('shared_buffers', 'work_mem', 'maintenance_work_mem', 'effective_
 ```
 
 **บันทึกผลการทดลอง - Step 5:**
-```
-ใส่ Screenshot ของ:
-1. ผลการรัน SELECT version();
-2. ผลการรัน SHOW shared_buffers; SHOW work_mem; SHOW maintenance_work_mem;SHOW effective_cache_size;
-3. ผลการรัน \l และ \du
-```
+
+<img width="1139" height="256" alt="image" src="https://github.com/user-attachments/assets/7c8c47c2-77c6-4290-9ef8-3e3392b77bb2" />
+<img width="729" height="160" alt="image" src="https://github.com/user-attachments/assets/e9cb383d-9bcd-4eb6-b509-2a592306e0c7" />
+<img width="1071" height="147" alt="image" src="https://github.com/user-attachments/assets/e0979aeb-c918-4e13-b3c7-503def4bed1e" />
+<img width="650" height="489" alt="image" src="https://github.com/user-attachments/assets/40485e8e-475f-4012-b499-9817acb941ef" />
 
 ### Step 6: Database Management Operations
 
