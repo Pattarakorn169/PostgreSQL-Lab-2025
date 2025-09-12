@@ -79,10 +79,10 @@ docker run hello-world
 ```
 
 **บันทึกผลการทดลอง - การเตรียมความพร้อม:**
-```
+
   <img width="1611" height="702" alt="image" src="https://github.com/user-attachments/assets/720ee973-9102-4cdb-8fc2-03f706f27ec3" />
 
-```
+
 
 ## ขั้นตอนการทดลอง
 
