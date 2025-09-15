@@ -622,12 +622,10 @@ docker run --name postgres-backup-test \
 ```
 
 **บันทึกผลการทดลอง - Step 12:**
-```
-ใส่ Screenshot ของ:
-1. ผลการหยุดและเริ่ม Container
-2. ยืนยันว่าข้อมูลยังอยู่หลังจาก restart
-3. ผลการสร้าง container พร้อม bind mount
-```
+
+<img width="1172" height="193" alt="image" src="https://github.com/user-attachments/assets/c022984f-31e4-46b7-afa7-559a2cd4af74" />
+<img width="598" height="275" alt="image" src="https://github.com/user-attachments/assets/43f339ab-083f-48bc-baf0-fa85ea2bca10" />
+<img width="549" height="158" alt="image" src="https://github.com/user-attachments/assets/f302b772-afff-4e22-aeeb-ba09e3338a8e" />
 
 ## การตรวจสอบผลงานและ Performance
 
@@ -647,9 +645,9 @@ docker volume inspect postgres-data
 ```
 
 **บันทึกผล Checkpoint 1:**
-```
-ใส่ Screenshot ของ resource usage และ volume information ที่นี่
-```
+<img width="1148" height="437" alt="image" src="https://github.com/user-attachments/assets/3238c000-7ce5-4ae2-8186-9a272b21252d" />
+<img width="734" height="474" alt="image" src="https://github.com/user-attachments/assets/32400094-118f-434c-8955-2bdec7ed1d36" />
+
 
 ### Checkpoint 2: Database Performance และ Configuration
 ```sql
@@ -694,13 +692,11 @@ FROM pg_stat_activity
 WHERE state = 'active';
 ```
 
-**บันทึกผล Checkpoint 2:**
-```
-ใส่ Screenshot ของ:
-1. Database statistics
-2. Memory configuration
-3. Active connections
-```
+**บันทึกผล Checkpoint 2:**```
+
+<img width="1014" height="168" alt="image" src="https://github.com/user-attachments/assets/856cb777-4c02-48d7-82df-993499c759bf" />
+<img width="410" height="198" alt="image" src="https://github.com/user-attachments/assets/46dfd7c4-666c-416c-88de-300d522016a3" />
+<img width="727" height="100" alt="image" src="https://github.com/user-attachments/assets/31c19f48-1943-42f8-9def-71b63cb53ef7" />
 
 ## การแก้ไขปัญหาเบื้องต้น
 
@@ -755,17 +751,22 @@ docker volume create postgres-data
 - Volume: `multi-postgres-data`
 
 ```bash
-# พื้นที่สำหรับคำตอบ - เขียน command ที่ใช้
+docker run -d \
+  --name multi-postgres \
+  -e POSTGRES_PASSWORD=multipass123 \
+  -p 5434:5432 \
+  --memory="1.5g" \
+  --cpus="1.5" \
+  -v multi-postgres-data:/var/lib/postgresql/data \
+  postgres
 
 ```
 
 **ผลการทำแบบฝึกหัด 1:**
-```
-ใส่ Screenshot ของ:
-1. คำสั่งที่ใช้สร้าง container
-2. docker ps แสดง container ใหม่
-3. docker stats แสดงการใช้ resources
-```
+
+<img width="557" height="146" alt="image" src="https://github.com/user-attachments/assets/3479dd68-dd4e-45a6-9fab-ad90435d677f" />
+<img width="572" height="245" alt="image" src="https://github.com/user-attachments/assets/2d9287f5-cd02-4ce1-9773-da66a433f2c2" />
+<img width="546" height="160" alt="image" src="https://github.com/user-attachments/assets/c5467a5e-8cf2-48fb-ab76-3fd0c97bd090" />
 
 ### แบบฝึกหัด 2: User Management และ Security
 **คำสั่ง**: สร้างระบบผู้ใช้ที่สมบูรณ์:
@@ -782,7 +783,16 @@ docker volume create postgres-data
 
 ```sql
 -- พื้นที่สำหรับคำตอบ - เขียน SQL commands ที่ใช้
+1.
+docker exec -it multi-postgres psql -U postgres
+2.
+CREATE ROLE app_developers NOLOGIN;
+CREATE ROLE data_analysts NOLOGIN;
+CREATE ROLE db_admins NOLOGIN;
 
+CREATE ROLE dev_user     LOGIN PASSWORD 'dev123'     IN ROLE app_developers;
+CREATE ROLE analyst_user LOGIN PASSWORD 'analyst123' IN ROLE data_analysts;
+CREATE ROLE admin_user   LOGIN PASSWORD 'admin123'   IN ROLE db_admins;
 ```
 
 **ผลการทำแบบฝึกหัด 2:**
@@ -792,6 +802,12 @@ docker volume create postgres-data
 2. ผลการรัน \du แสดงผู้ใช้ทั้งหมด
 3. ผลการทดสอบเชื่อมต่อด้วย user ต่างๆ
 ```
+<img width="834" height="357" alt="image" src="https://github.com/user-attachments/assets/fe322e59-e0a4-4cb6-bbeb-5560db21b529" />
+<img width="710" height="301" alt="image" src="https://github.com/user-attachments/assets/3bb731e6-f5c0-436c-8763-45d090f6b4a3" />
+<img width="578" height="179" alt="image" src="https://github.com/user-attachments/assets/b80fcdfb-0238-40ec-9908-0cb4cd1c8e49" />
+<img width="574" height="186" alt="image" src="https://github.com/user-attachments/assets/1824f5e5-1fe2-472a-bc4e-b74d68176894" />
+<img width="551" height="191" alt="image" src="https://github.com/user-attachments/assets/2e04a8e2-9bca-4017-8c06-6a2bcfe97795" />
+
 
 ### แบบฝึกหัด 3: Schema Design และ Complex Queries
 **คำสั่ง**: สร้างระบบฐานข้อมูลร้านค้าออนไลน์:
@@ -942,18 +958,57 @@ docker volume create postgres-data
    - หาลูกค้าที่ซื้อสินค้ามากที่สุด
 ```
 ```sql
-  -- พื้นที่สำหรับคำตอบ - เขียน SQL commands ทั้งหมด
+docker exec -it multi-postgres psql -U postgres
+
+2
+CREATE SCHEMA ecommerce;
+CREATE SCHEMA analytics;
+CREATE SCHEMA audit;
+
+3
+CREATE TABLE ecommerce.categories (
+  category_id   BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  description   TEXT
+);
+
+CREATE TABLE ecommerce.products (
+  product_id    BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  description   TEXT,
+  price         NUMERIC(10,2) NOT NULL,
+  category_id   BIGINT REFERENCES ecommerce.categories(category_id),
+  stock         INT NOT NULL
+);
+
+CREATE TABLE ecommerce.customers (
+  customer_id   BIGSERIAL PRIMARY KEY,
+  name          TEXT NOT NULL,
+  email         TEXT NOT NULL,
+  phone         TEXT,
+  address       TEXT
+);
+
+CREATE TABLE ecommerce.orders (
+  order_id      BIGSERIAL PRIMARY KEY,
+  customer_id   BIGINT REFERENCES ecommerce.customers(customer_id),
+  order_date    TIMESTAMP NOT NULL,
+  status        TEXT NOT NULL,
+  total         NUMERIC(12,2) NOT NULL
+);
+
+CREATE TABLE ecommerce.order_items (
+  order_item_id BIGSERIAL PRIMARY KEY,
+  order_id      BIGINT REFERENCES ecommerce.orders(order_id),
+  product_id    BIGINT REFERENCES ecommerce.products(product_id),
+  quantity      INT NOT NULL,
+  price         NUMERIC(10,2) NOT NULL
+);
 
 ```
 
 **ผลการทำแบบฝึกหัด 3:**
-```
-ใส่ Screenshot ของ:
-1. โครงสร้าง schemas และ tables (\dn+, \dt ecommerce.*)
-2. ข้อมูลตัวอย่างในตารางต่างๆ
-3. ผลการรัน queries ที่สร้าง
-4. การวิเคราะห์ข้อมูลที่ได้
-```
+<img width="965" height="237" alt="image" src="https://github.com/user-attachments/assets/aea3d0d7-a4c9-4c6f-bc40-6f08bb8a9bcf" />
 
 
 ## การทดสอบความเข้าใจ
@@ -968,7 +1023,10 @@ docker volume create postgres-data
 
 **คำตอบ Quiz 1:**
 ```
-เขียนคำตอบที่นี่
+1. ใช้ Named Volume สำหรับเก็บข้อมูลดาต้าเบสเพื่อความปลอดภัยและความสะดวกในการจัดการ และใช้ Bind Mount เมื่อต้องการแก้ไขไฟล์จากภายนอก Container บ่อยๆ เช่น ในระหว่างการพัฒนาซอฟต์แวร์
+2. การตั้งค่าที่สูงเกินไป (เช่น 80-90%) จะทำให้ RAM เหลือไม่พอสำหรับ OS และโปรเซสอื่นๆ ซึ่ง OS ก็ต้องการ RAM ในการทำ Caching
+3. การจัดระเบียบ ลดการขัดแย้ง การจัดการลิขสิทธิ์
+4. การติดตั้งใช้งานที่รวดเร็ว การแยกส่วน
 ```
 
 
